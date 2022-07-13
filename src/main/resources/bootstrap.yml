@@ -1,0 +1,27 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: configserver
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+        git:
+          uri:
+          search-paths: '{application}'
+    consul:
+      discovery:
+        instance-id: "${spring.application.name}:${random.int[1,99999]}"
+      host: localhost
+      port: 8500
+
+#Enable all Spring Boot Actuator endpoints.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health

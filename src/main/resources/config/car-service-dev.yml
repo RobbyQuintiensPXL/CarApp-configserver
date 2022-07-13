@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    password: mysqlpass
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/carshop_cars_dev
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update

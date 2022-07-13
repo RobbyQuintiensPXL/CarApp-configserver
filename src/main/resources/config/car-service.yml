@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        instance-id: "${spring.application.name}:${random.int[1,99999]}"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health
+server:
+  port: 8081
